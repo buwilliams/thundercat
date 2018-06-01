@@ -63,7 +63,6 @@ app.post('/admin/auth/login', (req, res, next) => {
 
     if(user) {
         bcrypt.compare(password, user.encryptedPassword, function(err, result) {
-            // res == true
             if(result === true) {
                 req.session.auth = true;
             } else if(result === false) {
@@ -83,7 +82,6 @@ app.post('/admin/auth/login', (req, res, next) => {
 app.get('/admin/auth/login', (req, res) => res.redirect('/admin/auth/login.html'));
 
 app.get('/admin/auth/logout', (req, res) => {
-    // destroy session
     req.session.destroy(function() {
         res.redirect('/admin/auth/logout.html');
     })
