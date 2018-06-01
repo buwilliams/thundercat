@@ -7,6 +7,7 @@ Light-weight web server with simple authentication
 1. `yarn install`
 2. `yarn run server`
 3. Open browser to `http://localhost:3000`
+4. Login at `http://localhost:3000/admin/auth/login` (default email: `admin@admin`, password: `admin`)
 
 ## Overview
 
