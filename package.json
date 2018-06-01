@@ -2,6 +2,9 @@
   "name": "thundercat",
   "version": "1.0.0",
   "description": "Light-weight web server with simple authentication",
+  "scripts": {
+      "server": "node ./src/server.js"
+  },
   "main": "src/server.js",
   "author": "Buddy Williams <buddywilliams@gmail.com>",
   "license": "MIT",
