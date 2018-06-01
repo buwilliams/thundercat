@@ -6,7 +6,7 @@ Light-weight web server with simple authentication
 
 1. `yarn install`
 2. `yarn run server`
-3. `http://localhost:3000`
+3. Open browser to `http://localhost:3000`
 
 ## Overview
 
