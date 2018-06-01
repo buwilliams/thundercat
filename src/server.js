@@ -89,6 +89,11 @@ app.get('/admin/auth/logout', (req, res) => {
     })
 });
 
+// TODO: list users
+// TODO: create user
+// TODO: delete user
+// TODO: change password
+
 app.listen(3000, () => {
     console.log('Thundercat leaping, nay, pouncing on port 3000!');
 });
