@@ -60,7 +60,6 @@ var app = new Vue({
             var self = this;
             axios.get('/admin/auth/users')
             .then(function(res) {
-                console.log('res', res);
                 self.users = res.data;
             });
         },
