@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+<body>
+<form action="/admin/auth/login" method="post">
+    <h1>Login</h1>
+    <div><label for="email">Email</label></div>
+    <div><input id="email" name="email" placeholder="Email Address"></div>
+    <div><label for="password">Password</label></div>
+    <div><input id="password" name="password" type="password" placeholder=""></div>
+    <div><button type="submit">Login</button></div>
+</form>
+
+<script type="text/javascript">
+    document.querySelector('#email').focus();
+</script>
+</body>
+</html>

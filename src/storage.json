@@ -1,0 +1,10 @@
+{
+    "users": [
+        {
+            "email": "admin@admin",
+            "encryptedPassword": "$2b$10$YkALsI4G3DweA1Z2c6bbEe7vz6wxISaf9bSbq2EkSdui/cJvdbZHe",
+            "type": "admin"
+        }
+    ]
+
+}
