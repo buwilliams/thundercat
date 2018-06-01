@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Users</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>Users</h1>
+    <h3>List of all users</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Encrypted Password</th>
+                <th>Type</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="user in users">
+                <td>{{ user.email }}</td>
+                <td>{{ user.encryptedPassword }}</td>
+                <td>{{ user.type }}</td>
+                <td><a href="#" @click.prevent="deleteUser(user)">delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Create User</h3>
+    <div><label for="email">Email</label></div>
+    <div><input id="email" name="email" placeholder="Email Address" v-model="email"></div>
+    <div><label for="password">Password</label></div>
+    <div><input id="password" name="password" type="password" placeholder="" v-model="password"></div>
+    <div><button @click.prevent="createUser">Create User</button></div>
+    <p><a href="/admin/site">Admin Home</a> or <a href="/admin/auth/logout">Logout</a></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script type="text/javascript">
+var app = new Vue({
+    el: '#app',
+
+    data: function() {
+        return {
+            users: [],
+            email: '',
+            password: ''
+        }
+    },
+
+    mounted: function() {
+        this.getUsers();
+    },
+
+    methods: {
+        getUsers: function() {
+            var self = this;
+            axios.get('/admin/auth/users')
+            .then(function(res) {
+                console.log('res', res);
+                self.users = res.data;
+            });
+        },
+
+        deleteUser: function(user) {
+            var self = this;
+            axios.delete('/admin/auth/users', {
+                email: user.email
+            }).then(function(res) {
+                self.users = res.data;
+            });
+        },
+
+        createUser: function() {
+            var self = this;
+            axios.post('/admin/auth/users', {
+                email: self.email,
+                password: self.password
+            }).then(function(res) {
+                self.email = '';
+                self.password = '';
+                self.users = res.data;
+            });
+        }
+    }
+});
+</script>
+
+</body>
+</html>
