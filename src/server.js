@@ -27,7 +27,6 @@ var storage = readStorage();
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 function authorize(req, res, next) {
-    // verify session
     console.log('Authorize session', req.session.auth);
     var authorized = req.session.auth;
     if(authorized === true) {
